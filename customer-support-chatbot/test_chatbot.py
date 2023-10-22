@@ -6,8 +6,8 @@ from chatbot import query
 
 def test_1():
     input = "What does your company do?"
-    output = query(input)
-    context = "Our company specializes in cloud computing, data analytics, and machine learning. We offer a range of services including cloud storage solutions, data analytics platforms, and custom machine learning models."
+    actual_output = query(input)
+    context = ["Our company specializes in cloud computing, data analytics, and machine learning. We offer a range of services including cloud storage solutions, data analytics platforms, and custom machine learning models."]
     factual_consistency_metric = FactualConsistencyMetric(minimum_score=0.7)
-    test_case = LLMTestCase(output=output, context=context)
+    test_case = LLMTestCase(input=input, actual_output=actual_output, context=context)
     assert_test(test_case, [factual_consistency_metric])
